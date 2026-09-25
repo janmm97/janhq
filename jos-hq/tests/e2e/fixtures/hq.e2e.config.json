@@ -1,0 +1,52 @@
+{
+  "$comment": "UI-test instance only: same executor policy, plus a fixture sub-agent directory. The expected emails are fake on purpose (…@invalid.test): no real account and not the fake One CLI's whoami can match them, so the identity gate blocks every UI-test dispatch. Never copy the live identities in here; tests/unit/e2e-isolation.test.ts enforces it.",
+  "port": 4613,
+  "logTimezoneLabel": "CST",
+  "root": {
+    "expectedEmail": "e2e-no-dispatch@invalid.test",
+    "expectedOrg": "jos-orchestrator",
+    "log": "JOSMEMORY.md"
+  },
+  "workspaces": {
+    "Studio": {
+      "dir": "Studio",
+      "expectedEmail": "e2e-no-dispatch@invalid.test",
+      "expectedOrg": null,
+      "log": "STUDIOMEMORY.md",
+      "executor": {
+        "adapter": "codex",
+        "runtimeLabel": "Codex CLI",
+        "model": "gpt-6-sol",
+        "modelLabel": "GPT 6 Sol",
+        "effort": "medium",
+        "codexBin": "auto",
+        "minCodexVersion": "0.155.0-alpha.2.6"
+      },
+      "planner": { "model": "gpt-6-astra", "modelLabel": "GPT 6 Astra", "effort": "medium" }
+    },
+    "One": {
+      "dir": "One",
+      "expectedEmail": "e2e-no-dispatch@invalid.test",
+      "expectedOrg": "One",
+      "log": "ONEMEMORY.md",
+      "executor": {
+        "adapter": "claude-code",
+        "runtimeLabel": "Claude Code",
+        "model": "claude-opus-5-5",
+        "modelLabel": "Claude Code Opus 5.5",
+        "effort": "medium",
+        "claudeBin": "auto"
+      },
+      "planner": { "model": "claude-opus-5-5", "modelLabel": "Claude Code Opus 5.5", "effort": "medium" }
+    }
+  },
+  "limits": {
+    "planTimeoutMs": 600000,
+    "previewTimeoutMs": 1800000,
+    "executeTimeoutMs": 1800000,
+    "modelVerificationTtlHours": 24
+  },
+  "agentDirsOverride": [
+    "tests/e2e/fixtures/agents"
+  ]
+}

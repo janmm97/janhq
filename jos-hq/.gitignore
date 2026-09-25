@@ -1,0 +1,15 @@
+node_modules/
+.next/
+.next-e2e/
+next-env.d.ts
+*.tsbuildinfo
+# HQ telemetry, run records and uploads. Markdown logs at the repo root stay the durable record.
+data/
+test-results/
+playwright-report/
+.impeccable/questions/
+.impeccable/review/
+.impeccable/mocks/
+.impeccable/build/
+# Private name map for scripts/export-public.mjs; never commit or export it.
+export.private.json

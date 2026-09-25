@@ -1,0 +1,50 @@
+{
+  "$comment": "J/OS HQ runtime policy. Expected identities mirror CLAUDE.md section 7 and are checked live before every dispatch; a mismatch blocks dispatch. Runtime pins are the operator's requirement (Jan, 2026-09-24): One plans and executes on Claude Code Opus 5.5 (medium); Studio plans on GPT 6 Astra (medium) and executes on GPT 6 Sol (medium). A workspace's planner uses its executor's harness and binary settings; only model, label and effort differ. Nothing here is a credential.",
+  "port": 4610,
+  "logTimezoneLabel": "CST",
+  "root": {
+    "expectedEmail": "operator@example.com",
+    "expectedOrg": "jos-orchestrator",
+    "log": "JOSMEMORY.md"
+  },
+  "workspaces": {
+    "One": {
+      "dir": "One",
+      "expectedEmail": "one-operator@example.com",
+      "expectedOrg": "One",
+      "log": "ONEMEMORY.md",
+      "executor": {
+        "adapter": "claude-code",
+        "runtimeLabel": "Claude Code",
+        "model": "claude-opus-5-5",
+        "modelLabel": "Claude Code Opus 5.5",
+        "effort": "medium",
+        "claudeBin": "auto"
+      },
+      "planner": { "model": "claude-opus-5-5", "modelLabel": "Claude Code Opus 5.5", "effort": "medium" }
+    },
+    "Studio": {
+      "dir": "Studio",
+      "expectedEmail": "studio-owner@example.com",
+      "expectedOrg": null,
+      "log": "STUDIOMEMORY.md",
+      "executor": {
+        "adapter": "codex",
+        "runtimeLabel": "Codex CLI",
+        "model": "gpt-6-sol",
+        "modelLabel": "GPT 6 Sol",
+        "effort": "medium",
+        "codexBin": "auto",
+        "minCodexVersion": "0.155.0-alpha.2.6"
+      },
+      "planner": { "model": "gpt-6-astra", "modelLabel": "GPT 6 Astra", "effort": "medium" }
+    }
+  },
+  "issues": { "owner": "janmm97", "repo": "janhq" },
+  "limits": {
+    "planTimeoutMs": 600000,
+    "previewTimeoutMs": 1800000,
+    "executeTimeoutMs": 1800000,
+    "modelVerificationTtlHours": 24
+  }
+}
