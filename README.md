@@ -2,7 +2,7 @@
 
 **A local command center that runs AI agents across two businesses, with an approval gate on everything that leaves the machine.**
 
-J/OS is an orchestration system built on [One](https://www.withone.ai) (the One CLI and One Flow),
+J/OS is an orchestration system built on [One](https://www.withone.ai),
 Claude Code and the Codex CLI. You type a request once. J/OS works out which business it belongs to,
 plans it against the real connected systems, and hands it to an executor agent. The agent works in
 that business's own workspace, under that business's own account. HQ is the web app that makes this
