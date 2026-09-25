@@ -1,3 +1,5 @@
+![The J/OS HQ dashboard: tasks and agents at a glance, each workspace's runtime and line, the drying line of finished tasks, and the most used connections](docs/dashboard.png)
+
 # J/OS HQ
 
 **A local command center that runs AI agents across two businesses, with an approval gate on everything that leaves the machine.**
