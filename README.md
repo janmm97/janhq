@@ -126,4 +126,4 @@ permission. See [LICENSE](LICENSE).
 
 ---
 
-Built by Jan Manalo ([@janmm97](https://github.com/janmm97)). Available for client work.
+Built by Jan Manalo ([@janmm97](https://github.com/janmm97)). 
