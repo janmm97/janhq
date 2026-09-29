@@ -1,0 +1,147 @@
+@import "tailwindcss";
+
+@theme {
+  /* The darkroom, printed in black and white (Tasks/HQ-Redesign-Spec-2026-09-25.md, 1.2). */
+  --color-ground: #0b0b0b;
+  --color-room: #121212;
+  --color-tray: #1a1a1a;
+  --color-rim: #2a2a2a;
+  --color-rim-strong: #4a4a4a;
+  --color-gray: #6a6a6a;
+  --color-silver: #9a9a9a;
+  --color-silver-hi: #c4c4c4;
+  --color-paper: #f2f2f2;
+  --color-fixed: #d9d9d9;
+  --color-safe: #ffb000;
+  --color-safe-lit: #ffc233;
+  --color-on-safe: #0b0b0b;
+  --color-fog: #f16464;
+  --color-strip-1: #f2f2f2;
+  --color-strip-2: #c4c4c4;
+  --color-strip-3: #8a8a8a;
+  --color-strip-4: #3a3a3a;
+  --color-strip-5: #222222;
+  --color-strip-6: #141414;
+
+  --font-sans: "JetBrains Mono Variable", ui-monospace, "Cascadia Mono", Consolas, monospace;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, "Cascadia Mono", Consolas, monospace;
+
+  --radius-card: 6px;
+  --radius-control: 4px;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Native controls (checkboxes, selects, the search field's clear button) render for a dark room. */
+html {
+  color-scheme: dark;
+}
+html,
+body {
+  background: var(--color-ground);
+  color: var(--color-paper);
+}
+
+body {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 1.55;
+  font-variant-numeric: tabular-nums;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* The parts no component draws still carry the palette. */
+::selection {
+  background: var(--color-paper);
+  color: var(--color-ground);
+}
+input,
+textarea {
+  caret-color: var(--color-safe);
+}
+a {
+  text-underline-offset: 3px;
+}
+/* In the base layer so a component's own outline-none can win: unlayered, this ring drew a second box
+   inside the composer, whose rim already shows focus. */
+@layer base {
+  :focus-visible {
+    outline: 2px solid var(--color-safe);
+    outline-offset: 3px;
+    border-radius: 3px;
+  }
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-rim-strong) transparent;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* A pool of enlarger light at the top of a page's main column: neutral grey, #1b at its centre, down to
+   the ground by the time it reaches the page's sides. It lights the page head; surfaces sit on top of it. */
+.enlarger {
+  background:
+    radial-gradient(ellipse 75% 45% at 50% 0%, #1b1b1b 0%, #161616 40%, #0b0b0b 85%) no-repeat,
+    var(--color-ground);
+}
+
+/* A list that scrolls inside its panel fades into the panel at its bottom edge while more sits below it.
+   --fold is the distance left to scroll, capped at 28px, so at the end the last row shows whole. */
+.fold {
+  mask-image: linear-gradient(to bottom, #000 calc(100% - var(--fold, 0px)), transparent);
+}
+
+/* The one authored moment: a finished result develops from a grey ghost to full contrast, once. */
+@keyframes develop {
+  from {
+    opacity: 0.12;
+    filter: blur(2.5px) contrast(0.3) brightness(0.7);
+  }
+  60% {
+    opacity: 0.85;
+    filter: blur(0.4px) contrast(0.9);
+  }
+  to {
+    opacity: 1;
+    filter: none;
+  }
+}
+.develop {
+  animation: develop 900ms var(--ease-out-expo) both;
+}
+
+/* Approving: the approved surface takes the safelight for a moment. */
+@keyframes expose-flash {
+  from {
+    box-shadow: inset 0 0 0 999px rgba(255, 176, 0, 0.18);
+  }
+  to {
+    box-shadow: inset 0 0 0 999px rgba(255, 176, 0, 0);
+  }
+}
+.expose-flash {
+  animation: expose-flash 200ms var(--ease-out-expo) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .develop,
+  .expose-flash {
+    animation: none;
+  }
+  * {
+    transition: none !important;
+  }
+}
+
+/* Executor output and payloads */
+.code-block {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  word-break: break-word;
+}

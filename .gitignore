@@ -1,0 +1,11 @@
+node_modules/
+.next/
+.next-e2e/
+*.tsbuildinfo
+jos-hq/data/
+jos-hq/test-results/
+jos-hq/playwright-report/
+# The workspaces hold their own One CLI config and credentials; they never belong here.
+One/
+Studio/
+.one/

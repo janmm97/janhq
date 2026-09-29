@@ -1,0 +1,37 @@
+{
+  "understand.uses": {
+    "version": 1,
+    "instructions": "Is a {platform} tool ({purpose}) needed as an instrument to carry out `request`?",
+    "criteria": { "true": "The task cannot be done without using this kind of tool.", "false": "The tool is not needed, is only mentioned, or is the thing being looked for." }
+  },
+  "understand.mail_role": {
+    "version": 1,
+    "instructions": "What role does email play in `request`?",
+    "criteria": {
+      "operate_mailbox": "Send, read, search, draft or manage messages inside a connected mailbox.",
+      "find_address": "An email address is information to find, look up or verify, for example on the web.",
+      "no_mail": "The request is not about email at all.",
+      "other": "None of the above."
+    }
+  },
+  "understand.complexity": {
+    "version": 1,
+    "instructions": "How much work does `request` take?",
+    "criteria": ["A single lookup or question answered with one tool", "A few reads combined into one answer", "Several steps, some of which change something", "Building or changing a reusable workflow"]
+  },
+  "understand.side_effects": {
+    "version": 1,
+    "instructions": "Would carrying out `request` send, create, update, delete, publish, schedule or charge anything outside J/OS HQ?",
+    "criteria": { "true": "At least one outward-facing change is needed.", "false": "Only reading, searching or answering is needed." }
+  },
+  "trim.connection": {
+    "version": 1,
+    "instructions": "Could the tool named \"{name}\" in `tools` be useful for `request`?",
+    "criteria": { "true": "It might be used, even partly.", "false": "It is clearly irrelevant to this request." }
+  },
+  "repeat.same_as": {
+    "version": 1,
+    "instructions": "Is `request` the same task as `candidates[{i}].asked`, so that the same plan would accomplish it?",
+    "criteria": { "true": "The same task; only the wording differs.", "false": "A different task, target, recipient or scope." }
+  }
+}

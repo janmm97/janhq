@@ -1,0 +1,36 @@
+{
+  "name": "jos-hq",
+  "version": "0.1.0",
+  "private": true,
+  "description": "J/OS HQ - the local command center and exclusive dispatch authority for the J/OS Orchestrator.",
+  "scripts": {
+    "dev": "next dev --port 4610 --hostname 127.0.0.1",
+    "build": "next build",
+    "start": "next start --port 4610 --hostname 127.0.0.1",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "build:e2e": "node scripts/build-e2e.mjs",
+    "test:e2e": "node scripts/build-e2e.mjs && playwright test",
+    "prove:dispatch": "tsx scripts/prove-dispatch.mts"
+  },
+  "dependencies": {
+    "@fontsource-variable/jetbrains-mono": "^5.3.0",
+    "next": "16.3.6",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "@tailwindcss/postcss": "4.3.3",
+    "@types/node": "24.13.6",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "tailwindcss": "4.3.3",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3",
+    "vitest": "5.0.1"
+  },
+  "engines": {
+    "node": ">=24"
+  }
+}

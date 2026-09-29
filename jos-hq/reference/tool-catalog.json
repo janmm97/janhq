@@ -1,0 +1,18 @@
+{
+  "gmail": { "purpose": "A mailbox: search, read, draft and send messages inside that one Gmail account.", "not_for": "Finding someone's email address on the web.", "side_effects": "send, draft, label, archive, delete" },
+  "exa": { "purpose": "Web search and page contents: find people, companies, email addresses, facts and pages on the public web.", "not_for": "Reading or sending mail; anything inside a connected account.", "side_effects": "none (paid reads)" },
+  "tavily": { "purpose": "Web search with extracted answers: research questions, news, company and people lookups on the public web.", "not_for": "Anything inside a connected account.", "side_effects": "none (paid reads)" },
+  "firecrawl": { "purpose": "Scrape and crawl web pages: turn a known URL or site into clean text or structured data.", "not_for": "Open-ended search when no site is known.", "side_effects": "none (paid reads)" },
+  "open-router": { "purpose": "Call a large language model: summarise, draft, classify or transform text.", "not_for": "Looking up live facts; acting on an account.", "side_effects": "none (paid inference)" },
+  "google-drive": { "purpose": "Files and folders in Google Drive: find, read, upload, move, share documents.", "not_for": "Email; web search.", "side_effects": "upload, move, share, delete" },
+  "google-docs": { "purpose": "Google Docs documents: read and edit document text.", "not_for": "Spreadsheets; email.", "side_effects": "create, edit" },
+  "google-calendar": { "purpose": "Calendar events and availability: read schedules, create or change meetings.", "not_for": "Email; files.", "side_effects": "create, update, delete events, send invites" },
+  "google-places": { "purpose": "Places and businesses on Google Maps: addresses, phone numbers, hours, reviews.", "not_for": "People's email addresses.", "side_effects": "none (paid reads)" },
+  "notion": { "purpose": "Notion pages and databases: search, read, create and update workspace content.", "not_for": "Email; web search.", "side_effects": "create, update, archive pages" },
+  "slack": { "purpose": "Slack channels and messages: read conversations, post messages, look up members.", "not_for": "Email.", "side_effects": "post, update, delete messages" },
+  "stripe": { "purpose": "Payments: customers, charges, invoices, subscriptions, refunds, payouts.", "not_for": "Anything that is not billing.", "side_effects": "charge, refund, create or change billing objects" },
+  "meta": { "purpose": "Meta (Facebook / Instagram) business assets: pages, posts, ads and insights.", "not_for": "Email; web search.", "side_effects": "publish, change ads" },
+  "typesafe": { "purpose": "Typed judgments by TypeSafe Jev: classify, score or yes/no-check text, with calibrated confidence.", "not_for": "Generating text; looking up facts.", "side_effects": "none (paid reads)" },
+  "github": { "purpose": "GitHub repositories: issues, pull requests, code.", "not_for": "Business work in One or Studio.", "side_effects": "create issues, comments, commits" },
+  "deep-seek": { "purpose": "Call a DeepSeek language model.", "not_for": "Looking up live facts.", "side_effects": "none (paid inference)" }
+}
