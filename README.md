@@ -245,4 +245,4 @@ permission. See [LICENSE](LICENSE).
 
 ---
 
-Built by [@janmm97](https://github.com/janmm97) with [Claude Code](https://claude.com/product/claude-code).
+Built by [@janmm97](https://github.com/janmm97) with [One](https://www.withone.ai/) and [Claude Code](https://claude.com/product/claude-code).
